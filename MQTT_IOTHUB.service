@@ -1,0 +1,11 @@
+[Unit]
+Description=LocatePlus RTLS MQTT to Iot Hub
+Requires=network-online.target
+
+[Service]
+EnvironmentFile=/root/rtlswebconfig
+ExecStart=/usr/bin/node /usr/bin/MQTT_IOTHUB/mqtt_iothub.js
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
