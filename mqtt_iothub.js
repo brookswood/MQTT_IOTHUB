@@ -3,8 +3,8 @@
 var mqtt = require('mqtt');
 var mqttServer = 'mqtt://localhost:1883'
 var options = {
- username: 'locateplus',
- password: '922a7a2e56',
+ config.mqttusername,
+ config.mqttpassword
 };
 
 var mqttclient = mqtt.connect(mqttServer, options); //var client = mqtt.connect(mqttServer, options);
@@ -13,7 +13,7 @@ var mqttclient = mqtt.connect(mqttServer, options); //var client = mqtt.connect(
 var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
 var Message = require('azure-iot-device').Message;
 
-var connectionString = 'HostName=LCPTEST.azure-devices.net;DeviceId=lcp-test;SharedAccessKey=Byy2efMveKTCGNOVBssjkgJH4uFX0KBfNYgazg23Oyg=';
+var connectionString = config.iothub;
 var iotclient = clientFromConnectionString(connectionString);
 
 mqttclient.subscribe('GW/Event');
